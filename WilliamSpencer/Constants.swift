@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-let kDebug = true
+let kDebug = false
 
 let kViewSize = UIScreen.main.bounds.size
 

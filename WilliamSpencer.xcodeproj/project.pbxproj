@@ -34,6 +34,8 @@
 		DFEAC53C1E36F19500A0885F /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC53B1E36F19500A0885F /* Meteor.swift */; };
 		DFEAC53E1E36F63B00A0885F /* MeteorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC53D1E36F63B00A0885F /* MeteorController.swift */; };
 		DFEF61891E3B086D000C14F4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEF61881E3B086D000C14F4 /* Contact.swift */; };
+		DFF4CB881E51AD34001E0233 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF4CB871E51AD34001E0233 /* GameSettings.swift */; };
+		DFF4CB8A1E51B29D001E0233 /* GameOverTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF4CB891E51B29D001E0233 /* GameOverTitle.swift */; };
 		DFF703C31E0B69550014786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF703C21E0B69550014786F /* AppDelegate.swift */; };
 		DFF703C91E0B69550014786F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF703C81E0B69550014786F /* GameScene.swift */; };
 		DFF703CB1E0B69550014786F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF703CA1E0B69550014786F /* GameViewController.swift */; };
@@ -45,6 +47,8 @@
 		DFF703F71E0B6BC60014786F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF703F61E0B6BC60014786F /* Constants.swift */; };
 		DFF703F91E0B6E310014786F /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF703F81E0B6E310014786F /* MenuScene.swift */; };
 		DFF703FB1E0B73700014786F /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF703FA1E0B73700014786F /* GameOverScene.swift */; };
+		DFFC245F1E5FD86000BE3437 /* RetryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFC245E1E5FD86000BE3437 /* RetryButton.swift */; };
+		DFFC24611E5FDA4B00BE3437 /* ScoreBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFC24601E5FDA4B00BE3437 /* ScoreBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +96,8 @@
 		DFEAC53B1E36F19500A0885F /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		DFEAC53D1E36F63B00A0885F /* MeteorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorController.swift; sourceTree = "<group>"; };
 		DFEF61881E3B086D000C14F4 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		DFF4CB871E51AD34001E0233 /* GameSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
+		DFF4CB891E51B29D001E0233 /* GameOverTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverTitle.swift; sourceTree = "<group>"; };
 		DFF703BF1E0B69550014786F /* WilliamSpencer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WilliamSpencer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF703C21E0B69550014786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFF703C81E0B69550014786F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 		DFF703F61E0B6BC60014786F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DFF703F81E0B6E310014786F /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		DFF703FA1E0B73700014786F /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		DFFC245E1E5FD86000BE3437 /* RetryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryButton.swift; sourceTree = "<group>"; };
+		DFFC24601E5FDA4B00BE3437 /* ScoreBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,7 @@
 				DF52321E1E1E626400EA28D2 /* GameTextures.swift */,
 				DF16612B1E247EC200B2DAA4 /* GameParticles.swift */,
 				DF7799101E4960C600A1A713 /* GameFonts.swift */,
+				DFF4CB871E51AD34001E0233 /* GameSettings.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -201,6 +210,9 @@
 				DF5232271E1E69F800EA28D2 /* PlayButton.swift */,
 				DF7D54841E4028AD003572C0 /* StartButton.swift */,
 				DF66BFC81E4AFBE2007E70CC /* PauseButton.swift */,
+				DFF4CB891E51B29D001E0233 /* GameOverTitle.swift */,
+				DFFC245E1E5FD86000BE3437 /* RetryButton.swift */,
+				DFFC24601E5FDA4B00BE3437 /* ScoreBoard.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -416,18 +428,18 @@
 				TargetAttributes = {
 					DFF703BE1E0B69550014786F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = L248HZDU6R;
+						DevelopmentTeam = KV543JV76H;
 						ProvisioningStyle = Automatic;
 					};
 					DFF703D81E0B69550014786F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = L248HZDU6R;
+						DevelopmentTeam = KV543JV76H;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DFF703BE1E0B69550014786F;
 					};
 					DFF703E31E0B69550014786F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = L248HZDU6R;
+						DevelopmentTeam = KV543JV76H;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DFF703BE1E0B69550014786F;
 					};
@@ -495,6 +507,7 @@
 			files = (
 				DFEAC53C1E36F19500A0885F /* Meteor.swift in Sources */,
 				DFEF61891E3B086D000C14F4 /* Contact.swift in Sources */,
+				DFF4CB881E51AD34001E0233 /* GameSettings.swift in Sources */,
 				DFEAC53E1E36F63B00A0885F /* MeteorController.swift in Sources */,
 				DF7799141E49BBDE00A1A713 /* StatusBar.swift in Sources */,
 				DF86C4A61E3ED40F00B7268F /* Star.swift in Sources */,
@@ -503,8 +516,11 @@
 				DFF703CB1E0B69550014786F /* GameViewController.swift in Sources */,
 				DFF703F91E0B6E310014786F /* MenuScene.swift in Sources */,
 				DFEAC5391E30621E00A0885F /* Player.swift in Sources */,
+				DFF4CB8A1E51B29D001E0233 /* GameOverTitle.swift in Sources */,
+				DFFC24611E5FDA4B00BE3437 /* ScoreBoard.swift in Sources */,
 				DF52321F1E1E626400EA28D2 /* GameTextures.swift in Sources */,
 				DF52321C1E1E588700EA28D2 /* Colors.swift in Sources */,
+				DFFC245F1E5FD86000BE3437 /* RetryButton.swift in Sources */,
 				DF5232281E1E69F800EA28D2 /* PlayButton.swift in Sources */,
 				DF16612C1E247EC200B2DAA4 /* GameParticles.swift in Sources */,
 				DFF703C31E0B69550014786F /* AppDelegate.swift in Sources */,
@@ -612,7 +628,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -655,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -667,10 +683,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
-				DEVELOPMENT_TEAM = L248HZDU6R;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KV543JV76H;
 				INFOPLIST_FILE = WilliamSpencer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eraera.WilliamSpencer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.sakana.kun.san.eraera.sk8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -680,10 +697,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
-				DEVELOPMENT_TEAM = L248HZDU6R;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KV543JV76H;
 				INFOPLIST_FILE = WilliamSpencer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eraera.WilliamSpencer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.sakana.kun.san.eraera.sk8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -694,7 +712,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = L248HZDU6R;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KV543JV76H;
 				INFOPLIST_FILE = SpaceRunnerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eraera.SpaceRunnerTests;
@@ -709,7 +728,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = L248HZDU6R;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KV543JV76H;
 				INFOPLIST_FILE = SpaceRunnerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eraera.SpaceRunnerTests;
@@ -723,7 +743,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = L248HZDU6R;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KV543JV76H;
 				INFOPLIST_FILE = SpaceRunnerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eraera.SpaceRunnerUITests;
@@ -737,7 +758,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = L248HZDU6R;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KV543JV76H;
 				INFOPLIST_FILE = SpaceRunnerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eraera.SpaceRunnerUITests;

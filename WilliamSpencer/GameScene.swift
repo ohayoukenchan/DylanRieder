@@ -199,6 +199,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         state = .gameOver
         
         background.stopBackground()
+        player.gameOver()
+        
+        // Load the GameOverScene after two seconds
+        self.run(SKAction.wait(forDuration: 2.0), completion: {
+            [weak self] in
+            self?.loadScene()
+        })
     }
     
     // MARK: - Pause and Resume Game
@@ -228,7 +235,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Load Scene
     private func loadScene() {
-        let scene = GameOverScene(size: kViewSize)
+        let scene = GameOverScene(size: kViewSize, score: player.getScore(), stars: player.getStars(), streak: player.getStreak())
         let transition = SKTransition.fade(with: SKColor.black, duration: 0.5)
         
         self.view?.presentScene(scene, transition: transition)

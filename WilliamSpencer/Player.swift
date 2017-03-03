@@ -22,6 +22,7 @@ class Player: SKSpriteNode {
     private var lives = 3
     private var immune = false
     private var stars = 0
+    private var highStreak = 0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -123,6 +124,10 @@ class Player: SKSpriteNode {
         stars += 1
         streak += 1
         
+        if streak >= highStreak {
+            highStreak = streak
+        }
+        
         switch streak {
         case 0...5:
             increaseScore(bonus: 250)
@@ -151,6 +156,22 @@ class Player: SKSpriteNode {
         }
     }
     
+    func gameOver() {
+        saveScore()
+    }
+    
+    private func saveScore() {
+        if score > GameSettings.sharedInstance.getBestScore() {
+            GameSettings.sharedInstance.saveBestScore(score: score)
+        }
+        if stars > GameSettings.sharedInstance.getBestStars() {
+            GameSettings.sharedInstance.saveBestStars(stars: stars)
+        }
+        if streak > GameSettings.sharedInstance.getBestStreak() {
+            GameSettings.sharedInstance.saveBestStreak(streak: highStreak)
+        }
+    }
+    
     func getLives() -> Int {
         return lives
     }
@@ -165,6 +186,10 @@ class Player: SKSpriteNode {
     
     func getStars() -> Int {
         return stars
+    }
+    
+    func getStreak() -> Int {
+        return highStreak
     }
     
     private func increaseScore(bonus: Int) {

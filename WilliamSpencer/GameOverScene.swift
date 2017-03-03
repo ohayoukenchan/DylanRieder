@@ -12,6 +12,8 @@ class GameOverScene: SKScene {
     
     // MARK: - Private instance constants
     private let background = Background()
+    private let retryButton = RetryButton()
+    private let gameOverTitle = GameOverTitle()
     
     // MARK: - Private instance variables
     private var sceneLabel:SKLabelNode?
@@ -25,22 +27,22 @@ class GameOverScene: SKScene {
         super.init(size: size)
     }
     
-    override func didMove(to view: SKView) {
-        self.setup()
+    convenience init(size: CGSize, score: Int, stars: Int, streak: Int) {
+        self.init(size: size)
+        
+        self.setup(score: score, stars: stars, streak: streak)
     }
     
     // MARK: - Setup
-    private func setup() {
+    private func setup(score: Int, stars: Int, streak:Int) {
         self.backgroundColor = Colors.colorFromRGB(rgbvalue: Colors.background)
         
         self.addChild(background)
+        self.addChild(retryButton)
+        self.addChild(gameOverTitle)
         
-        sceneLabel = SKLabelNode(fontNamed: "Arial")
-        sceneLabel?.text = "GameOverScene"
-        sceneLabel?.fontSize = 32.0
-        sceneLabel?.fontColor = SKColor.white
-        sceneLabel?.position = CGPoint(x: kViewSize.width / 2, y: kViewSize.height / 2)
-        self.addChild(sceneLabel!)
+        let scoreBoard = ScoreBoard(score: score, stars: stars, streak: streak)
+        self.addChild(scoreBoard)
     }
     
     // MARK: - Update
@@ -52,14 +54,15 @@ class GameOverScene: SKScene {
         let touch:UITouch = touches.first! as UITouch
         let touchLocation = touch.location(in: self)
         
-        if sceneLabel!.contains(touchLocation) {
+        if retryButton.contains(touchLocation) {
+            retryButton.tapped()
             loadScene()
         }
     }
     
     // MARK: - Load Scene
     private func loadScene() {
-        let scene = MenuScene(size: kViewSize)
+        let scene = GameScene(size: kViewSize)
         let transition = SKTransition.fade(with: SKColor.black, duration: 0.5)
         
         self.view?.presentScene(scene, transition: transition)

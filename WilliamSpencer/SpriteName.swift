@@ -40,5 +40,9 @@ class SpriteName {
     class var pauseButton: String { return "PauseButton" }
     class var resumeButton: String { return "ResumeButton" }
     
+    // Game Over
+    class var gameOverTitle: String { return "GameOverTitle" }
+    class var retryButton: String { return "RetryButton" }
+    
 }
         
