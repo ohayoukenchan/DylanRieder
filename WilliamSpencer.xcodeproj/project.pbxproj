@@ -30,7 +30,8 @@
 		DF7D54851E4028AD003572C0 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D54841E4028AD003572C0 /* StartButton.swift */; };
 		DF86C4A61E3ED40F00B7268F /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86C4A51E3ED40F00B7268F /* Star.swift */; };
 		DF86C4A81E3ED73F00B7268F /* StarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86C4A71E3ED73F00B7268F /* StarController.swift */; };
-		DFEAC5391E30621E00A0885F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC5381E30621E00A0885F /* Player.swift */; };
+		DF9C30F61E724C120073074E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9C30F51E724C120073074E /* Player.swift */; };
+		DFEAC5391E30621E00A0885F /* OldPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC5381E30621E00A0885F /* OldPlayer.swift */; };
 		DFEAC53C1E36F19500A0885F /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC53B1E36F19500A0885F /* Meteor.swift */; };
 		DFEAC53E1E36F63B00A0885F /* MeteorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC53D1E36F63B00A0885F /* MeteorController.swift */; };
 		DFEF61891E3B086D000C14F4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEF61881E3B086D000C14F4 /* Contact.swift */; };
@@ -92,7 +93,8 @@
 		DF7D54841E4028AD003572C0 /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		DF86C4A51E3ED40F00B7268F /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		DF86C4A71E3ED73F00B7268F /* StarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarController.swift; sourceTree = "<group>"; };
-		DFEAC5381E30621E00A0885F /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DF9C30F51E724C120073074E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DFEAC5381E30621E00A0885F /* OldPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldPlayer.swift; sourceTree = "<group>"; };
 		DFEAC53B1E36F19500A0885F /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		DFEAC53D1E36F63B00A0885F /* MeteorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorController.swift; sourceTree = "<group>"; };
 		DFEF61881E3B086D000C14F4 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -245,7 +247,8 @@
 		DFEAC5371E3061BC00A0885F /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				DFEAC5381E30621E00A0885F /* Player.swift */,
+				DFEAC5381E30621E00A0885F /* OldPlayer.swift */,
+				DF9C30F51E724C120073074E /* Player.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -515,7 +518,7 @@
 				DF16612A1E1FB4A800B2DAA4 /* Math.swift in Sources */,
 				DFF703CB1E0B69550014786F /* GameViewController.swift in Sources */,
 				DFF703F91E0B6E310014786F /* MenuScene.swift in Sources */,
-				DFEAC5391E30621E00A0885F /* Player.swift in Sources */,
+				DFEAC5391E30621E00A0885F /* OldPlayer.swift in Sources */,
 				DFF4CB8A1E51B29D001E0233 /* GameOverTitle.swift in Sources */,
 				DFFC24611E5FDA4B00BE3437 /* ScoreBoard.swift in Sources */,
 				DF52321F1E1E626400EA28D2 /* GameTextures.swift in Sources */,
@@ -533,6 +536,7 @@
 				DFF703F71E0B6BC60014786F /* Constants.swift in Sources */,
 				DF5BE9791E2CDF5C00818D3E /* Background.swift in Sources */,
 				DF86C4A81E3ED73F00B7268F /* StarController.swift in Sources */,
+				DF9C30F61E724C120073074E /* Player.swift in Sources */,
 				DF7799111E4960C600A1A713 /* GameFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

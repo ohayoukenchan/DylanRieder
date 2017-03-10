@@ -1,8 +1,8 @@
 //
 //  Player.swift
-//  SpaceRunner
+//  WilliamSpencer
 //
-//  Created by Kenta Uemura on 2017/01/19.
+//  Created by Kenta Uemura on 2017/03/10.
 //  Copyright © 2017年 Kenta Takano. All rights reserved.
 //
 
@@ -10,19 +10,8 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
-    // MARK: - Private class constants
-    private let touchOffset:CGFloat = 44.0
-    private let moveFilter:CGFloat = 0.05 // Filter movement by 5%
-    
     // MARK: - Private class variables
     private var targetPosition = CGPoint()
-    
-    private var score = 0
-    private var streak = 0
-    private var lives = 3
-    private var immune = false
-    private var stars = 0
-    private var highStreak = 0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,7 +26,7 @@ class Player: SKSpriteNode {
         self.init(texture: texture, color: SKColor.white, size: texture.size())
         
         setup()
-        setupPhysics()
+        //setupPhysics()
         self.name = "Player"
     }
     
@@ -54,149 +43,5 @@ class Player: SKSpriteNode {
         self.physicsBody?.collisionBitMask = Contact.player
         self.physicsBody?.contactTestBitMask = Contact.meteor | Contact.star
     }
-    
-    // MARK: - Update
-    func update() {
-        move()
-    }
-    
-    // MARK: - Movement
-    func updateTargetPosition(position: CGPoint) {
-        targetPosition = CGPoint(x: position.x, y: position.y + touchOffset)
-    }
-    
-    private func move() {
-        let newX = Smooth(startPoint: self.position.x, endPoint: targetPosition.x, percentToMove: moveFilter)
-        let newY = Smooth(startPoint: self.position.y, endPoint: targetPosition.y, percentToMove: moveFilter)
-        
-        // "Clamp" the minimum and maximum X value to allow half the ship to go offscreen horizontally
-        let correctedX = Clamp(value: newX, min: 0 - self.size.width / 2, max: kViewSize.width + self.size.width / 2)
-        
-        // "Clamp" the minimum and maximum Y value to not allow the ship to go off screen vertically
-        let correctedY = Clamp(value: newY, min: 0 + self.size.height, max: kViewSize.height - self.size.height)
-        
-        self.position = CGPoint(x: correctedX, y: correctedY)
-        
-        rotate()
-    }
-    
-    private func rotate() {
-        if DistanceBetweenPoints(firstPoint: self.position, secondPoint: targetPosition) > 25 {
-            let angle = AngleBetweenPoints(targetPosition: targetPosition, currentPosition: self.position)
-            self.run(SKAction.rotate(toAngle: angle, duration: 0.16, shortestUnitArc: true))
-        } else {
-            let angle:CGFloat = 0.0
-            self.run(SKAction.rotate(toAngle: angle, duration: 0.16, shortestUnitArc: true))
-        }
-    }
-    
-    // MARK: - Actions
-    private func blinkPlayer() {
-        let blink = SKAction.sequence([SKAction.fadeOut(withDuration: 0.15), SKAction.fadeIn(withDuration: 0.15)])
-        self.run(SKAction.repeatForever(blink), withKey: "Blink")
-    }
-    
-    // MARK: - Contact
-    func contact(body: String) {
-        
-        lives -= 1
-        
-        streak = 0
-        
-        if lives > 0 {
-            immune = true
-            
-            blinkPlayer()
-            
-            self.run(SKAction.wait(forDuration: 3.0), completion: {
-                [weak self] in
-                self?.immune = false
-                self?.removeAction(forKey: "Blink")
-            })
-        }
-        
-        if kDebug {
-            print("Player made contact with \(body) .")
-        }
-    }
-    
-    func pickup() {
-        stars += 1
-        streak += 1
-        
-        if streak >= highStreak {
-            highStreak = streak
-        }
-        
-        switch streak {
-        case 0...5:
-            increaseScore(bonus: 250)
-        
-        case 6...10:
-            increaseScore(bonus: 500)
-        
-        case 11...15:
-            increaseScore(bonus: 750)
-        
-        case 16...20:
-            increaseScore(bonus: 1000)
-        
-        default:
-            increaseScore(bonus: 5000)
-        }
-        
-        print("picked up a star")
-    }
-    
-    func updateDistanceScore() {
-        score += 1
-        
-        if kDebug {
-            print("Score: \(score)")
-        }
-    }
-    
-    func gameOver() {
-        saveScore()
-    }
-    
-    private func saveScore() {
-        if score > GameSettings.sharedInstance.getBestScore() {
-            GameSettings.sharedInstance.saveBestScore(score: score)
-        }
-        if stars > GameSettings.sharedInstance.getBestStars() {
-            GameSettings.sharedInstance.saveBestStars(stars: stars)
-        }
-        if streak > GameSettings.sharedInstance.getBestStreak() {
-            GameSettings.sharedInstance.saveBestStreak(streak: highStreak)
-        }
-    }
-    
-    func getLives() -> Int {
-        return lives
-    }
-    
-    func getImmunity() -> Bool {
-        return immune
-    }
-    
-    func getScore() -> Int {
-        return score
-    }
-    
-    func getStars() -> Int {
-        return stars
-    }
-    
-    func getStreak() -> Int {
-        return highStreak
-    }
-    
-    private func increaseScore(bonus: Int) {
-        score += bonus
-        
-        if kDebug {
-            print("Score: \(score)")
-        }
-    }
+
 }
