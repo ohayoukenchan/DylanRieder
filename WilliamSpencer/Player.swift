@@ -10,6 +10,11 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
+    // MARK: - Private class constants
+    private let touchOffset:CGFloat = 44.0
+    private let moveFilter:CGFloat = 0.05 // Filter movement by 5%
+
+    
     // MARK: - Private class variables
     private var targetPosition = CGPoint()
     
@@ -26,7 +31,7 @@ class Player: SKSpriteNode {
         self.init(texture: texture, color: SKColor.white, size: texture.size())
         
         setup()
-        //setupPhysics()
+        setupPhysics()
         self.name = "Player"
     }
     
@@ -43,5 +48,66 @@ class Player: SKSpriteNode {
         self.physicsBody?.collisionBitMask = Contact.player
         self.physicsBody?.contactTestBitMask = Contact.meteor | Contact.star
     }
+    
+    // MARK: - Update
+    func update() {
+        move()
+    }
+    
+    // MARK: - Movement
+    func updateTargetPosition(position: CGPoint) {
+        targetPosition = CGPoint(x: position.x, y: position.y + touchOffset)
+    }
+    
+    private func move() {
+        let newX = Smooth(startPoint: self.position.x, endPoint: targetPosition.x, percentToMove: moveFilter)
+        let newY = Smooth(startPoint: self.position.y, endPoint: targetPosition.y, percentToMove: moveFilter)
+        
+        // "Clamp" the minimum and maximum X value to allow half the ship to go offscreen horizontally
+        let correctedX = Clamp(value: newX, min: 0 - self.size.width / 2, max: kViewSize.width + self.size.width / 2)
+        
+        // "Clamp" the minimum and maximum Y value to not allow the ship to go off screen vertically
+        let correctedY = Clamp(value: newY, min: 0 + self.size.height, max: kViewSize.height - self.size.height)
+        
+        self.position = CGPoint(x: correctedX, y: correctedY)
+        
+        rotate()
+    }
+    
+    private func rotate() {
+        if DistanceBetweenPoints(firstPoint: self.position, secondPoint: targetPosition) > 25 {
+            let angle = AngleBetweenPoints(targetPosition: targetPosition, currentPosition: self.position)
+            self.run(SKAction.rotate(toAngle: angle, duration: 0.16, shortestUnitArc: true))
+        } else {
+            let angle:CGFloat = 0.0
+            self.run(SKAction.rotate(toAngle: angle, duration: 0.16, shortestUnitArc: true))
+        }
+    }
 
+}
+
+public extension SKAction {
+    class func jump(height: CGFloat, duration seconds: TimeInterval) -> SKAction {
+        var initialY: CGFloat = 0.0
+        var initialFlag = true
+        
+        let customAction = SKAction.customAction(withDuration: seconds) {
+            node, elapsedTime in
+            if initialFlag == true {
+                initialFlag = false
+                initialY = node.position.y
+            }
+            
+            let t = elapsedTime/CGFloat(seconds)
+            
+            let y: CGFloat
+            if t > 0.9995 {
+                y = 0
+            } else {
+                y = -4 * height * t * (t - 1)
+            }
+            node.position.y = initialY + y
+        }
+        return customAction
+    }
 }

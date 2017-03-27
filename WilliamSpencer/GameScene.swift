@@ -75,6 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Update
     override func update(_ currentTime: TimeInterval) {
+        player.update()
 //        let delta = currentTime - self.lastUpdateTime
 //        self.lastUpdateTime = currentTime
 //        
@@ -102,9 +103,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Touch Handling
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let touch:UITouch = touches.first! as UITouch
-//        let touchLocation = touch.location(in: self)
-//        
+        let touch:UITouch = touches.first! as UITouch
+        let touchLocation = touch.location(in: self)
+        player.updateTargetPosition(position: touchLocation)
+        let jump = SKAction.jump(height: 100, duration: 1.0) // 100ptの高さで1.0秒ジャンプする
+        player.run(jump)
 //        switch state {
 //        case .waiting:
 //            if startButton.contains(touchLocation) {
@@ -160,7 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                }
 //            }
 //        }
-//    }
+    }
 //    
 //    // MARK: - State
 //    func stateRunning() {
@@ -171,7 +174,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        player.updateTargetPosition(position: kScreenCenter)
 //        
 //        startButton.buttonTapped()
-    }
+//    }
     
     func statePaused() {
 //        previousState = state
