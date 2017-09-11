@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //private let meteorController = MeteorController()
     //private let starController = StarController()
     //private let startButton = StartButton()
+    private let anyButton = AnyButton()
     //private let interfaceNode = SKNode()
     private let gameNode = SKNode()
     
@@ -64,6 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Make the other objects children of gameNode
 //        gameNode.addChild(background)
         gameNode.addChild(player)
+        gameNode.addChild(anyButton)
 //        gameNode.addChild(meteorController)
 //        gameNode.addChild(starController)
 //        gameNode.addChild(startButton)
@@ -75,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Update
     override func update(_ currentTime: TimeInterval) {
-        player.update()
+        
 //        let delta = currentTime - self.lastUpdateTime
 //        self.lastUpdateTime = currentTime
 //        
@@ -105,9 +107,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch:UITouch = touches.first! as UITouch
         let touchLocation = touch.location(in: self)
-        player.updateTargetPosition(position: touchLocation)
-        let jump = SKAction.jump(height: 100, duration: 1.0) // 100ptの高さで1.0秒ジャンプする
-        player.run(jump)
+        player.update()
+//        player.updateTargetPosition(position: touchLocation)
+//        let jump = SKAction.jump(height: 100, duration: 1.0) // 100ptの高さで1.0秒ジャンプする
+//        player.run(jump)
 //        switch state {
 //        case .waiting:
 //            if startButton.contains(touchLocation) {

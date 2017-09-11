@@ -13,7 +13,7 @@ class MenuScene: SKScene {
     private let logo = GameLogo()
     private let title = GameTitle()
     private let playButton = PlayButton()
-    private let background = Background()
+    //private let background = Background()
     
     
     // MARK: - Init
@@ -31,9 +31,9 @@ class MenuScene: SKScene {
     
     // MARK: - Setup
     private func setup() {
-        self.backgroundColor = Colors.colorFromRGB(rgbvalue: Colors.background)
+        //self.backgroundColor = Colors.colorFromRGB(rgbvalue: Colors.background)
         
-        self.addChild(background)
+        //self.addChild(background)
         self.addChild(logo)
         self.addChild(title)
         self.addChild(playButton)

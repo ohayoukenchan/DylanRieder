@@ -31,6 +31,7 @@
 		DF86C4A61E3ED40F00B7268F /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86C4A51E3ED40F00B7268F /* Star.swift */; };
 		DF86C4A81E3ED73F00B7268F /* StarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86C4A71E3ED73F00B7268F /* StarController.swift */; };
 		DF9C30F61E724C120073074E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9C30F51E724C120073074E /* Player.swift */; };
+		DFB758621ECEA5B0008B7757 /* AnyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB758611ECEA5B0008B7757 /* AnyButton.swift */; };
 		DFEAC5391E30621E00A0885F /* OldPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC5381E30621E00A0885F /* OldPlayer.swift */; };
 		DFEAC53C1E36F19500A0885F /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC53B1E36F19500A0885F /* Meteor.swift */; };
 		DFEAC53E1E36F63B00A0885F /* MeteorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC53D1E36F63B00A0885F /* MeteorController.swift */; };
@@ -94,6 +95,7 @@
 		DF86C4A51E3ED40F00B7268F /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		DF86C4A71E3ED73F00B7268F /* StarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarController.swift; sourceTree = "<group>"; };
 		DF9C30F51E724C120073074E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DFB758611ECEA5B0008B7757 /* AnyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyButton.swift; sourceTree = "<group>"; };
 		DFEAC5381E30621E00A0885F /* OldPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldPlayer.swift; sourceTree = "<group>"; };
 		DFEAC53B1E36F19500A0885F /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		DFEAC53D1E36F63B00A0885F /* MeteorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				DFF4CB891E51B29D001E0233 /* GameOverTitle.swift */,
 				DFFC245E1E5FD86000BE3437 /* RetryButton.swift */,
 				DFFC24601E5FDA4B00BE3437 /* ScoreBoard.swift */,
+				DFB758611ECEA5B0008B7757 /* AnyButton.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -292,11 +295,11 @@
 				DF5BE9771E2CDF0600818D3E /* Background */,
 				DF5232201E1E64E400EA28D2 /* Interface */,
 				DF52321D1E1E622D00EA28D2 /* Singletons */,
+				DFF703CF1E0B69550014786F /* Assets.xcassets */,
 				DF5232061E1E549F00EA28D2 /* GameResources */,
 				DFF703FD1E0B771E0014786F /* ViewController */,
 				DFF703FC1E0B76F00014786F /* Scenes */,
 				DFF703FE1E0B773A0014786F /* Storyboards */,
-				DFF703CF1E0B69550014786F /* Assets.xcassets */,
 				DFF703D41E0B69550014786F /* Info.plist */,
 				DFF703FF1E0B775B0014786F /* Utilities */,
 			);
@@ -512,6 +515,7 @@
 				DFEF61891E3B086D000C14F4 /* Contact.swift in Sources */,
 				DFF4CB881E51AD34001E0233 /* GameSettings.swift in Sources */,
 				DFEAC53E1E36F63B00A0885F /* MeteorController.swift in Sources */,
+				DFB758621ECEA5B0008B7757 /* AnyButton.swift in Sources */,
 				DF7799141E49BBDE00A1A713 /* StatusBar.swift in Sources */,
 				DF86C4A61E3ED40F00B7268F /* Star.swift in Sources */,
 				DFF703C91E0B69550014786F /* GameScene.swift in Sources */,

@@ -11,7 +11,7 @@ import SpriteKit
 class Colors {
     
     // RGB Colors
-    class var background:Int        { return 0x000013 }
+    class var background:Int        { return 0xffffff }
     class var dust:Int              { return 0x04f2de }
     class var engine:Int            { return 0x55f87e }
     class var bonus:Int             { return 0xb3ff01 }

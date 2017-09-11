@@ -13,6 +13,7 @@ class SpriteName {
     class var logo:String          { return "GameLogo" }
     class var title:String         { return "GameTitle" }
     class var playButton:String    { return "PlayButton" }
+    class var anyButton:String    { return "DummyButton" }
     
     // Particle Sprites
     class var magic:String         { return "Magic" }

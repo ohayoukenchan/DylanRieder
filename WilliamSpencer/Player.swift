@@ -13,6 +13,7 @@ class Player: SKSpriteNode {
     // MARK: - Private class constants
     private let touchOffset:CGFloat = 44.0
     private let moveFilter:CGFloat = 0.05 // Filter movement by 5%
+    private var isJumping:Bool = false
 
     
     // MARK: - Private class variables
@@ -51,7 +52,14 @@ class Player: SKSpriteNode {
     
     // MARK: - Update
     func update() {
-        move()
+        //move()
+        if (!isJumping) {
+            let jump = SKAction.jump(height: 100    , duration: 1.0) // 100ptの高さで1.0秒ジャンプする
+            isJumping = true
+            self.run(jump) {
+                self.isJumping = false
+            }
+        }
     }
     
     // MARK: - Movement
@@ -60,18 +68,22 @@ class Player: SKSpriteNode {
     }
     
     private func move() {
-        let newX = Smooth(startPoint: self.position.x, endPoint: targetPosition.x, percentToMove: moveFilter)
-        let newY = Smooth(startPoint: self.position.y, endPoint: targetPosition.y, percentToMove: moveFilter)
         
-        // "Clamp" the minimum and maximum X value to allow half the ship to go offscreen horizontally
-        let correctedX = Clamp(value: newX, min: 0 - self.size.width / 2, max: kViewSize.width + self.size.width / 2)
         
-        // "Clamp" the minimum and maximum Y value to not allow the ship to go off screen vertically
-        let correctedY = Clamp(value: newY, min: 0 + self.size.height, max: kViewSize.height - self.size.height)
-        
-        self.position = CGPoint(x: correctedX, y: correctedY)
-        
-        rotate()
+        //ｙ＝ｖ×ｔ×ｓｉｎθ－ｇ×ｔ×ｔ
+        //self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 5), at: CGPoint(x: self.frame.width/2, y: 100));
+//        let newX = Smooth(startPoint: self.position.x, endPoint: targetPosition.x, percentToMove: moveFilter)
+//        let newY = Smooth(startPoint: self.position.y, endPoint: targetPosition.y, percentToMove: moveFilter)
+//        
+//        // "Clamp" the minimum and maximum X value to allow half the ship to go offscreen horizontally
+//        let correctedX = Clamp(value: newX, min: 0 - self.size.width / 2, max: kViewSize.width + self.size.width / 2)
+//        
+//        // "Clamp" the minimum and maximum Y value to not allow the ship to go off screen vertically
+//        let correctedY = Clamp(value: newY, min: 0 + self.size.height, max: kViewSize.height - self.size.height)
+//        
+//        self.position = CGPoint(x: correctedX, y: correctedY)
+//        
+//        rotate()
     }
     
     private func rotate() {
