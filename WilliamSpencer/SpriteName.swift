@@ -13,6 +13,7 @@ class SpriteName {
     class var logo:String          { return "GameLogo" }
     class var title:String         { return "GameTitle" }
     class var playButton:String    { return "PlayButton" }
+    class var anyButton:String    { return "DummyButton" }
     
     // Particle Sprites
     class var magic:String         { return "Magic" }
@@ -39,6 +40,10 @@ class SpriteName {
     // Pause & Resume Button
     class var pauseButton: String { return "PauseButton" }
     class var resumeButton: String { return "ResumeButton" }
+    
+    // Game Over
+    class var gameOverTitle: String { return "GameOverTitle" }
+    class var retryButton: String { return "RetryButton" }
     
 }
         

@@ -19,5 +19,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WilliamSpencer/GameScene.swift"
+            timestampString = "516859221.069295"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "GameScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WilliamSpencer.GameScene.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;WilliamSpencer.GameScene&gt;"
+                  moduleName = "WilliamSpencer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/200080/Develop/DylanRieder/WilliamSpencer/GameScene.swift"
+                  timestampString = "516874436.679742"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WilliamSpencer.GameScene.init (size : __C.CGSize) -&gt; WilliamSpencer.GameScene"
+                  moduleName = "WilliamSpencer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/200080/Develop/DylanRieder/WilliamSpencer/GameScene.swift"
+                  timestampString = "516874436.681232"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -9,11 +9,11 @@
 import SpriteKit
 
 func DegreesToRadians(degrees: CGFloat) -> CGFloat {
-    return degrees * CGFloat(M_PI) / 180.0
+    return degrees * CGFloat(Double.pi) / 180.0
 }
 
 func RadiansToDegrees(radians: CGFloat) -> CGFloat {
-    return radians * 180.0 / CGFloat(M_PI)
+    return radians * 180.0 / CGFloat(Double.pi)
 }
 
 func Smooth(startPoint: CGFloat, endPoint: CGFloat, percentToMove: CGFloat) -> CGFloat {

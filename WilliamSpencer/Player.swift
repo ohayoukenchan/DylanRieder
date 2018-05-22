@@ -1,8 +1,8 @@
 //
 //  Player.swift
-//  SpaceRunner
+//  WilliamSpencer
 //
-//  Created by Kenta Uemura on 2017/01/19.
+//  Created by Kenta Uemura on 2017/03/10.
 //  Copyright © 2017年 Kenta Takano. All rights reserved.
 //
 
@@ -13,15 +13,11 @@ class Player: SKSpriteNode {
     // MARK: - Private class constants
     private let touchOffset:CGFloat = 44.0
     private let moveFilter:CGFloat = 0.05 // Filter movement by 5%
+    private var isJumping:Bool = false
+
     
     // MARK: - Private class variables
     private var targetPosition = CGPoint()
-    
-    private var score = 0
-    private var streak = 0
-    private var lives = 3
-    private var immune = false
-    private var stars = 0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -56,7 +52,14 @@ class Player: SKSpriteNode {
     
     // MARK: - Update
     func update() {
-        move()
+        //move()
+        if (!isJumping) {
+            let jump = SKAction.jump(height: 100    , duration: 1.0) // 100ptの高さで1.0秒ジャンプする
+            isJumping = true
+            self.run(jump) {
+                self.isJumping = false
+            }
+        }
     }
     
     // MARK: - Movement
@@ -65,18 +68,22 @@ class Player: SKSpriteNode {
     }
     
     private func move() {
-        let newX = Smooth(startPoint: self.position.x, endPoint: targetPosition.x, percentToMove: moveFilter)
-        let newY = Smooth(startPoint: self.position.y, endPoint: targetPosition.y, percentToMove: moveFilter)
         
-        // "Clamp" the minimum and maximum X value to allow half the ship to go offscreen horizontally
-        let correctedX = Clamp(value: newX, min: 0 - self.size.width / 2, max: kViewSize.width + self.size.width / 2)
         
-        // "Clamp" the minimum and maximum Y value to not allow the ship to go off screen vertically
-        let correctedY = Clamp(value: newY, min: 0 + self.size.height, max: kViewSize.height - self.size.height)
-        
-        self.position = CGPoint(x: correctedX, y: correctedY)
-        
-        rotate()
+        //ｙ＝ｖ×ｔ×ｓｉｎθ－ｇ×ｔ×ｔ
+        //self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 5), at: CGPoint(x: self.frame.width/2, y: 100));
+//        let newX = Smooth(startPoint: self.position.x, endPoint: targetPosition.x, percentToMove: moveFilter)
+//        let newY = Smooth(startPoint: self.position.y, endPoint: targetPosition.y, percentToMove: moveFilter)
+//        
+//        // "Clamp" the minimum and maximum X value to allow half the ship to go offscreen horizontally
+//        let correctedX = Clamp(value: newX, min: 0 - self.size.width / 2, max: kViewSize.width + self.size.width / 2)
+//        
+//        // "Clamp" the minimum and maximum Y value to not allow the ship to go off screen vertically
+//        let correctedY = Clamp(value: newY, min: 0 + self.size.height, max: kViewSize.height - self.size.height)
+//        
+//        self.position = CGPoint(x: correctedX, y: correctedY)
+//        
+//        rotate()
     }
     
     private func rotate() {
@@ -88,90 +95,31 @@ class Player: SKSpriteNode {
             self.run(SKAction.rotate(toAngle: angle, duration: 0.16, shortestUnitArc: true))
         }
     }
-    
-    // MARK: - Actions
-    private func blinkPlayer() {
-        let blink = SKAction.sequence([SKAction.fadeOut(withDuration: 0.15), SKAction.fadeIn(withDuration: 0.15)])
-        self.run(SKAction.repeatForever(blink), withKey: "Blink")
-    }
-    
-    // MARK: - Contact
-    func contact(body: String) {
+
+}
+
+public extension SKAction {
+    class func jump(height: CGFloat, duration seconds: TimeInterval) -> SKAction {
+        var initialY: CGFloat = 0.0
+        var initialFlag = true
         
-        lives -= 1
-        
-        streak = 0
-        
-        if lives > 0 {
-            immune = true
+        let customAction = SKAction.customAction(withDuration: seconds) {
+            node, elapsedTime in
+            if initialFlag == true {
+                initialFlag = false
+                initialY = node.position.y
+            }
             
-            blinkPlayer()
+            let t = elapsedTime/CGFloat(seconds)
             
-            self.run(SKAction.wait(forDuration: 3.0), completion: {
-                [weak self] in
-                self?.immune = false
-                self?.removeAction(forKey: "Blink")
-            })
+            let y: CGFloat
+            if t > 0.9995 {
+                y = 0
+            } else {
+                y = -4 * height * t * (t - 1)
+            }
+            node.position.y = initialY + y
         }
-        
-        if kDebug {
-            print("Player made contact with \(body) .")
-        }
-    }
-    
-    func pickup() {
-        stars += 1
-        streak += 1
-        
-        switch streak {
-        case 0...5:
-            increaseScore(bonus: 250)
-        
-        case 6...10:
-            increaseScore(bonus: 500)
-        
-        case 11...15:
-            increaseScore(bonus: 750)
-        
-        case 16...20:
-            increaseScore(bonus: 1000)
-        
-        default:
-            increaseScore(bonus: 5000)
-        }
-        
-        print("picked up a star")
-    }
-    
-    func updateDistanceScore() {
-        score += 1
-        
-        if kDebug {
-            print("Score: \(score)")
-        }
-    }
-    
-    func getLives() -> Int {
-        return lives
-    }
-    
-    func getImmunity() -> Bool {
-        return immune
-    }
-    
-    func getScore() -> Int {
-        return score
-    }
-    
-    func getStars() -> Int {
-        return stars
-    }
-    
-    private func increaseScore(bonus: Int) {
-        score += bonus
-        
-        if kDebug {
-            print("Score: \(score)")
-        }
+        return customAction
     }
 }
